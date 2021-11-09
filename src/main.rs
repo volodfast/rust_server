@@ -1,34 +1,6 @@
-struct Server {
-    addr: String,
-}
+mod server;
 
-impl Server {
-    fn new(addr: String) -> Self {
-        Self { addr }
-    }
-
-    fn run(self) {
-        println!("Server is running on: {}!", self.addr);
-    }
-}
-
-enum RequestMethod {
-    GET,
-    POST,
-    DELETE,
-    PUT,
-    HEAD,
-    CONNECT,
-    OPTIONS,
-    TRACE,
-    PATCH,
-}
-
-struct Request {
-    path: String,
-    query_string: Option<String>,
-    method: RequestMethod,
-}
+use server::Server;
 
 fn main() {
     let addr = String::from("127.0.0.1:8080");
